@@ -21,10 +21,10 @@ function displayError($title, $message) {
 }
 
 if(isset($_POST['login'])){
-    echo $Email = mysqli_real_escape_string($conn, $_POST['Email']);
-    echo $Pass = mysqli_real_escape_string($conn, $_POST['Pass']);
-    echo $sql="SELECT * FROM tbUserMaster WHERE fdEmailAsUserID = '$Email' AND fdPassword ='$Pass' AND fdStatus = '1'";
-    echo $res=mysqli_query($conn,$sql);
+    $Email = mysqli_real_escape_string($conn, $_POST['Email']);
+    $Pass = mysqli_real_escape_string($conn, $_POST['Pass']);
+    $sql="SELECT * FROM tbUserMaster WHERE fdEmailAsUserID = '$Email' AND fdPassword ='$Pass' AND fdStatus = '1'";
+    $res=mysqli_query($conn,$sql);
 
     if(mysqli_num_rows($res)>0){
         while($row=mysqli_fetch_assoc($res)){
@@ -39,7 +39,7 @@ if(isset($_POST['login'])){
                 error_log("Failed to update last login date for user: $Email, Error: " . mysqli_error($conn));
             }
 
-            // echo "<script>window.location.href = 'index.php';</script>";
+            echo "<script>window.location.href = 'https://medicineverification.com/index.php';</script>";
         }
     } else {
         $Sql = "SELECT * FROM tbUserMaster WHERE fdEmailAsUserID = '$Email' AND fdPassword ='$Pass' AND fdStatus = '0'";
