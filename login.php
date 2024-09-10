@@ -38,9 +38,8 @@ if(isset($_POST['login'])){
                 // Log error or send an error response if needed
                 error_log("Failed to update last login date for user: $Email, Error: " . mysqli_error($conn));
             }
-            ?>
-                <script>window.location.href = 'https://medicineverification.com/index.php';</script>
-            <?php
+            // echo "hello world";
+            echo "<script> window.location.href = 'index.php'; </script>";
         }
     } else {
         $Sql = "SELECT * FROM tbUserMaster WHERE fdEmailAsUserID = '$Email' AND fdPassword ='$Pass' AND fdStatus = '0'";
