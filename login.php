@@ -38,8 +38,15 @@ if(isset($_POST['login'])){
                 // Log error or send an error response if needed
                 error_log("Failed to update last login date for user: $Email, Error: " . mysqli_error($conn));
             }
-            // echo "hello world";
-            echo "<script> window.location.href = 'index.php'; </script>";
+            // Redirection: First check if headers are already sent
+            if (!headers_sent()) {
+                header('Location: index.php'); // Use PHP header redirection
+                exit(); // Ensure script execution stops
+            } else {
+                // If headers are already sent, fallback to JavaScript redirection
+                echo "<script>window.location.href = 'index.php';</script>";
+                exit(); // Ensure script execution stops
+            }
         }
     } else {
         $Sql = "SELECT * FROM tbUserMaster WHERE fdEmailAsUserID = '$Email' AND fdPassword ='$Pass' AND fdStatus = '0'";
