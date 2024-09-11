@@ -352,7 +352,7 @@ img {
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="Pass" id="password" placeholder="Password" required>
+						<input class="input100" type="password" name="Pass" id="password" placeholder="Pssword" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fas fa-lock" aria-hidden="true"></i>
